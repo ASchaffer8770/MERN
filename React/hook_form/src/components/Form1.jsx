@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import DisplayForm from './DisplayForm'
 
 const Form1 = () => {
     const [firstName, setfirstName] = useState("")
@@ -33,6 +34,7 @@ const Form1 = () => {
                     </div>
                     <input type="submit" value="Submit" />
                 </form>
+                <DisplayForm firstName = {firstName} lastName = {lastName} email = {email} password = {password} confirmPassword = {confirmPassword}/>
         </div>
   )
 }
