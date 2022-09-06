@@ -1,5 +1,6 @@
 import axios from 'axios';
 import './App.css';
+import DisplayPoke from './components/DisplayPoke';
 import FetchPoke from './views/FetchPoke';
 
 function App() {
