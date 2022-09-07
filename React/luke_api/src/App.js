@@ -1,30 +1,16 @@
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
-
-const Home = () => {
-  return (
-    <div>
-        <h2>Home.jsx</h2>
-    </div>
-  )
-}
-
-const About = () => {
-  return (
-    <div>
-        <h2>About.jsx </h2>
-    </div>
-  )
-}
+import {Routes, Route, Navigate, Link} from 'react-router-dom';
+import ErrorPage from './views/ErrorPage';
+import HeaderForm from './components/HeaderForm';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Star Wars API</h1>
-      <h2>Header can go here</h2>
+    <div className='App'>
+      <h1>Luke APIwalker</h1>
+      <HeaderForm/>
+
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
+        <Route></Route>
       </Routes>
     </div>
   );
