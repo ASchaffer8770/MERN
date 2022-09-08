@@ -28,7 +28,7 @@ const DisplayPeople = () => {
                 <p>Hair Color: {people.hair_color}</p>
                 <p>Skin Color: {people.skin_color}</p>
             </div>:
-            <h1>Invalid Character ID</h1>
+            <img src="https://c.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif" alt="not the driods" />
     }
     </div>
   )

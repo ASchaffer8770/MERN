@@ -23,10 +23,10 @@ const DisplayPlanet = () => {
                 <h1>{planet.name}</h1>
                 <p>Climate: {planet.climate} </p>
                 <p>Terrain: {planet.terrain} kg</p>
-                <p>Surface Water: {planet.surface_water}</p>
+                <p>Orbital Period: {planet.orbital_period}</p>
                 <p>Population: {planet.population}</p>
             </div>:
-            <h1>Invalid Character ID</h1>
+            <img src="https://c.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif" alt="not the driods" />
     }
     </div>
   )
