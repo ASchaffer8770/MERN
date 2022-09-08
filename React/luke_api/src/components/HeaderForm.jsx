@@ -21,11 +21,11 @@ const HeaderForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        Search For: 
+        Search Galaxy: 
         <select name="category" value={category} onChange={e=>setCategory(e.target.value)}>
           <option hidden>Select Category</option>
           <option value="people">People</option>
-          <option value="planet">Planets</option>
+          <option value="planets">Planets</option>
         </select>
         ID :
         <input type="text" name='id'value={id} onChange={e=>setId(e.target.value)}/>
