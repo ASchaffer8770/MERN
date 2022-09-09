@@ -13,3 +13,4 @@ app.use(express.urlencoded({extended: true}))
 
 
 //OPEN PORTS
+app.listen(8000, ()=>console.log(`Listening to port: 8000`))
