@@ -49,7 +49,10 @@ app.get("/api/companies/new", (req,res) => {
 })
 
 app.get("/api/user/company", (req,res) => {
-    const getBoth = new Company(User ())
+    const getBoth = {
+        User: new User,
+        Company: new Company
+    }
     res.json(getBoth)
 })
 
