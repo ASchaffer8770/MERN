@@ -6,7 +6,9 @@ module.exports.testApi = (req, res) => {
 
 //get all
 module.exports.allJokes = (req, res) => {
-    res.json()
+    Jokes.find()
+    .then(allJokes => res.json(allJokes))
+    .catch(err=>res.json(err))
 }
 
 //get one
@@ -16,7 +18,10 @@ module.exports.oneJoke = (req, res) => {
 
 //create
 module.exports.createJoke = (req, res) => {
-    res.json()
+    const newJoke = req.body
+    Jokes.create(newJoke)
+        .then(joke => res.json(joke))
+        .catch(err=>res.json(err))
 }
 
 //update
