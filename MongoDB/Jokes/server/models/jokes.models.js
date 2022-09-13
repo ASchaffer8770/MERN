@@ -1,10 +1,10 @@
 const mongoose = require("mongoose")
 
-const JokesSchema = new mongooose.Schema({
+const JokesSchema = new mongoose.Schema({
     setup: {
         type: String,
         required: [true, "Joke setup is required."],
-        minlength: [3, "Setup must be more than 3 characters long."]
+        minlength: [10, "Setup must be more than 3 characters long."]
     },
     punchline:{
         type: String,
