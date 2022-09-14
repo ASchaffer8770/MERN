@@ -14,7 +14,7 @@ const productsSchema = new mongoose.Schema({
     description : {
         type: String,
         required : [true, "Must have a description of the item"],
-        minlength : [10, "Needs to contain more than 10 characters"]
+        minlength : [5, "Needs to contain more than 10 characters"]
     }
 },  {timestamps: true})
 
