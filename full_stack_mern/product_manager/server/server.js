@@ -1,11 +1,11 @@
 const express = require("express") //import dependencies
 const app = express()
+const cors = require('cors')
 const port = 8000
-
 
 require("./configs/mongoose.config")//connectes to config file which connects to db
 
-
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
