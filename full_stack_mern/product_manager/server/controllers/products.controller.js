@@ -1,4 +1,4 @@
-const products = require("./../models/products.model")
+const {products} = require("./../models/products.model")
 
 module.exports.testApi = (request, response) => {
     response.json({ Status: "OK" })
