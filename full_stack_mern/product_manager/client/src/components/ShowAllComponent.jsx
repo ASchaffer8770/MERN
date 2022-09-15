@@ -7,7 +7,7 @@ const ShowAllComponent = (props) => {
 
   return (
     <div>
-        <table>
+        <table className="table table-striped">
             <thead>
                 <tr>
                     <th>Product</th>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 // form input : onChange, useState
 //form submit: handleSubmit
@@ -13,11 +13,28 @@ const UpdateProduct = () => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-    const [products, setProducts] = useState("")
+
+    //get info from the api to pre populate the form for editing
+    const {id} =useParams()
+
+    useEffect(()=>{
+        axios.get(`http://localhost:8000/api/products/${id}`)
+          .then(response =>{
+            const product = response.data
+            setTitle(product.title)
+            setPrice(product.price)
+            setDescription(product.description)
+          })
+          .catch(err => console.log(err))
+      }, [])
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-
+        axios.put(`http://localhost:8000/api/products/${id}`, {title, price, description})
+            .then(response => {
+                navigate(`/products/${response.data._id}`)
+            })
+            .catch(err => console.log(err))
     }
 
 

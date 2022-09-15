@@ -20,7 +20,7 @@ const CreateForm = () => {
         axios.post(`http://localhost:8000/api/products`, {title: title, price:price, description:description})
             .then(response=>{
                 console.log(response)
-                navigate('/') //not fully functioning
+                navigate(`http://localhost:8000/api/products`) //not fully functioning
             })
             .catch(err=>console.log(err))
     }

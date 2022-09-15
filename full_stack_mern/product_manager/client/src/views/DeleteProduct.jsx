@@ -2,7 +2,9 @@ import React from 'react'
 
 const DeleteProduct = () => {
   return (
-    <div>DeleteProduct</div>
+    <div>
+        
+    </div>
   )
 }
 
