@@ -1,9 +1,20 @@
-import React from 'react'
-import { Link } from'react-router-dom'
+import React, {useEffect} from 'react'
+import axios from 'axios'
+import { Link, useParams, useNavigate } from'react-router-dom'
 
 
 const ShowAllComponent = (props) => {
 
+    const navigate = useNavigate()
+    const {id} = useParams()
+    
+    const handleDelete = (deleteId)=>{
+        axios.delete(`http://localhost:8000/api/products/${id}`)
+          .then(response => {
+            navigate('/')
+          })
+          .catch(err => console.log(err))
+      }
 
   return (
     <div>
@@ -19,9 +30,9 @@ const ShowAllComponent = (props) => {
                     props.products.map((eachProduct, i)=>{
                         return (
                             <tr key={i}>
-                                <td><Link to={`/products${eachProduct._id}`}> {eachProduct.title}</Link></td>
+                                <td><Link to={`/products/${eachProduct._id}`}> {eachProduct.title}</Link></td>
                                 <td><Link to={`/products/edit/${eachProduct._id}`} className='btn btn-warning'> Edit </Link></td>
-                                <td><Link to={`/products/delete/${eachProduct._id}`} className='btn btn-danger'> Delete </Link></td>
+                                <td><button onClick={()=>handleDelete()} className='btn btn-danger'>Delete</button></td>
                             </tr>
                         )
                     })

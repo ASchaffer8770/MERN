@@ -14,13 +14,21 @@ const CreateForm = () => {
     const [description, setDescription] = useState("")
     const [products, setProducts] = useState("")
 
+    useEffect(()=>{
+        axios.get(`http://localhost:8000/api/products`)
+          .then(response =>{
+            console.log(response.data)
+            setProducts(response.data)
+          })
+          .catch(err => console.log(err))
+      }, [])
+
     const handleSubmit = (e)=>{
         e.preventDefault()
         //send form data into the api, if successful, redirect
         axios.post(`http://localhost:8000/api/products`, {title: title, price:price, description:description})
             .then(response=>{
                 console.log(response)
-                navigate(`http://localhost:8000/api/products`) //not fully functioning
             })
             .catch(err=>console.log(err))
     }

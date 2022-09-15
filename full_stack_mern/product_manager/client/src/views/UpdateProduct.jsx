@@ -37,6 +37,14 @@ const UpdateProduct = () => {
             .catch(err => console.log(err))
     }
 
+    const handleDelete = (deleteId)=>{
+        axios.delete(`http://localhost:8000/api/products/${id}`)
+          .then(response => {
+            navigate('/')
+          })
+          .catch(err => console.log(err))
+      }
+
 
   return (
     <div>
@@ -57,7 +65,7 @@ const UpdateProduct = () => {
                      onChange={(e)=>setDescription(e.target.value)}/>
             </div>
             <button type="submit" className='btn btn-warning'>Update</button>
-            <Link to={`/`} className='btn btn-danger'> Delete </Link>
+            <button onClick={()=>handleDelete()} className='btn btn-danger'>Delete</button>
         </form>
     <Link to={`/`} className='btn btn-primary'>Home</Link>
     </div>
