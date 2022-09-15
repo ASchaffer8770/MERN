@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const navigate = useNavigate()
   //2 get info from api on load
   useEffect(()=>{
-    axios.get(`http://localhost:8000/api/products/${id}`)
+    axios.get(`http://localhost:8000/api/products`)
       .then(response =>{
         console.log(response.data)
         setProducts(response.data)

@@ -7,12 +7,12 @@ import axios from 'axios'
 // send forData into api : axios
 //Logic after create : useNavigate
 
-const CreateForm = () => {
+const CreateForm = (props) => {
     const navigate = useNavigate()
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-    const [products, setProducts] = useState("")
+    const [products, setProducts] = useState()
 
     useEffect(()=>{
         axios.get(`http://localhost:8000/api/products`)
@@ -21,7 +21,7 @@ const CreateForm = () => {
             setProducts(response.data)
           })
           .catch(err => console.log(err))
-      }, [])
+      }, [props.products])
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -52,7 +52,7 @@ const CreateForm = () => {
                 <input type="text" name="description" value={description}
                      onChange={(e)=>setDescription(e.target.value)}/>
             </div>
-            <button type="submit" className='btn btn-primary'>Create</button>
+            <button className='btn btn-primary'>Create</button>
         </form>
     </div>
   )
