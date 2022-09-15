@@ -1,4 +1,4 @@
-import React, { useState }from 'react'
+import React, { useState, useEffect }from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -12,6 +12,7 @@ const CreateForm = () => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
+    const [products, setProducts] = useState("")
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -19,10 +20,11 @@ const CreateForm = () => {
         axios.post(`http://localhost:8000/api/products`, {title: title, price:price, description:description})
             .then(response=>{
                 console.log(response)
-                navigate('/')
+                navigate('/') //not fully functioning
             })
             .catch(err=>console.log(err))
     }
+
 
   return (
     <div>

@@ -2,9 +2,9 @@ import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import ProductDetails from './views/ProductDetails';
 import TestPage from './views/TestPage';
-import UpdateProducts from './views/UpdateProducts'
 import ErrorPage from './views/ErrorPage';
 import CreateShowProducts from './views/CreateShowProducts';
+import UpdateProduct from './views/UpdateProduct';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/test" element={<TestPage />} />
         <Route path="/" element={<CreateShowProducts />} />
         <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/products/edit/:id" element={<UpdateProducts />} />
+        <Route path="/products/edit/:id" element={< UpdateProduct/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

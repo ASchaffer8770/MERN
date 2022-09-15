@@ -7,20 +7,26 @@ const ShowAllComponent = (props) => {
 
   return (
     <div>
-        <h3>All Products:</h3>
-            <p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
                 {
                     props.products.map((eachProduct, i)=>{
-                        return(
-                            <p key={i}>
-                                <Link to={`/products/${eachProduct._id}`}>
-                                <p> {eachProduct.title}</p>
-                                </Link>
-                            </p>
+                        return (
+                            <tr key={i}>
+                                <td><Link to={`/products/${eachProduct._id}`}> {eachProduct.title}</Link></td>
+                                <td><Link to={`/products/edit/${eachProduct._id}`}> Edit </Link></td>
+                            </tr>
                         )
                     })
                 }
-            </p>
+            </tbody>
+        </table>
     </div>
   )
 }
