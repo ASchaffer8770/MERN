@@ -34,7 +34,7 @@ const ProductDetails = () => {
         </div>
       }
         <div>
-            <Link to="/">Home</Link>
+            <Link to="/" className='btn btn-primary'>Home</Link>
         </div>
     </div>
   )
