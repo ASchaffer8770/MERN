@@ -13,7 +13,7 @@ const ShowAllComponent = (props) => {
                     props.products.map((eachProduct, i)=>{
                         return(
                             <p key={i}>
-                                <Link to='/products/details'>
+                                <Link to={`/products/${eachProduct._id}`}>
                                 <p> {eachProduct.title}</p>
                                 </Link>
                             </p>
