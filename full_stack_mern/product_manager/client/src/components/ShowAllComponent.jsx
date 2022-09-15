@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from'react-router-dom'
 
 
 const ShowAllComponent = (props) => {
@@ -6,26 +7,20 @@ const ShowAllComponent = (props) => {
 
   return (
     <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
+        <h3>All Products:</h3>
+            <p>
                 {
                     props.products.map((eachProduct, i)=>{
                         return(
-                            <tr key={i}>
-                                <td> {eachProduct.title}</td>
-                            </tr>
+                            <p key={i}>
+                                <Link to='/products/details'>
+                                <p> {eachProduct.title}</p>
+                                </Link>
+                            </p>
                         )
                     })
                 }
-            </tbody>
-        </table>
+            </p>
     </div>
   )
 }
