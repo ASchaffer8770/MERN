@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import ShowAllComponent from '../components/ShowAllComponent'
 
 const CreateShowProducts = () => {
+    const [products, setProducts] = useState() 
+
+    useEffect(()=>{
+        axios.get(`http://localhost:8000/api/products`)
+        .then(response=>{
+            setProducts(response.data)
+        })
+        .catch(err=>console.log(err))
+    },[])
+
   return (
     <div>
-        <div>Create Products Form Here</div>
+        
         <div>
             <form action="">
                 <div>
@@ -21,7 +34,12 @@ const CreateShowProducts = () => {
                 <input type="button" value="Submit" className='btn btn-primary'/>
             </form>
         </div>
-        <div>Show All Products Here</div>
+        <div>
+            <ShowAllComponent products = {products}/>
+            <p>
+                <Link to='/products/details'>Detail Dummy Link</Link>
+            </p>
+        </div>
     </div>
   )
 }

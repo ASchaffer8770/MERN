@@ -1,14 +1,14 @@
-const {products} = require("./../models/products.model")
+const products = require("./../models/products.model")
 
 module.exports.testApi = (request, response) => {
-    response.json({ Status: "OK" })
+    response.json({ Status: "OK", Message:"Message from the Backend"})
 }
 
 //getALL
-module.exports.getAll = (request, response) => {
+module.exports.allProducts = (req, res) => {
     products.find()
-        .then(allproducts => response.json(allproducts))
-        .catch(err => response.json(err))
+        .then(allProducts => res.json(allProducts))
+        .catch(err => res.status(400).json(err))
 }
 
 //getOne
@@ -21,9 +21,8 @@ module.exports.getOne = (request, response) => {
 
 //create
 module.exports.createProduct = (request, response) => {
-    const newProduct = request.body
-    products.create(newProduct)
-        .then(product => response.json(product))
+    products.create(request.body)
+        .then(createProduct => response.json(createProduct))
         .catch(err => response.json(err))
 }
 
