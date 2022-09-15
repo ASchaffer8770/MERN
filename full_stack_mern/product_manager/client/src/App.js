@@ -5,6 +5,7 @@ import TestPage from './views/TestPage';
 import ErrorPage from './views/ErrorPage';
 import CreateShowProducts from './views/CreateShowProducts';
 import UpdateProduct from './views/UpdateProduct';
+import DeleteProduct from './views/DeleteProduct';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<CreateShowProducts />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/products/edit/:id" element={< UpdateProduct/>} />
+        <Route path="/products/delete/:id" element={< DeleteProduct/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
