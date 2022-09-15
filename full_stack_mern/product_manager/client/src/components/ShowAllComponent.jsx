@@ -7,7 +7,7 @@ const ShowAllComponent = (props) => {
 
     const navigate = useNavigate()
     const {id} = useParams()
-    const [products, setProducts] = useState()
+    const [products, setProducts] = useState([])
 
     useEffect(()=>{
         axios.get(`http://localhost:8000/api/products`)
@@ -21,7 +21,8 @@ const ShowAllComponent = (props) => {
     const handleDelete = (deleteId)=>{
         axios.delete(`http://localhost:8000/api/products/${id}`)
           .then(response => {
-            navigate('/')
+            const filterList = products.filter((products)=>products._id !== deleteId)
+            setProducts(filterList)
           })
           .catch(err => console.log(err))
       }

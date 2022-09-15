@@ -12,16 +12,16 @@ const CreateForm = (props) => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-    const [products, setProducts] = useState()
+    const [products, setProducts] = useState([])
 
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/products`)
-          .then(response =>{
-            console.log(response.data)
-            setProducts(response.data)
-          })
-          .catch(err => console.log(err))
-      }, [props.products])
+      axios.get(`http://localhost:8000/api/products`)
+        .then(response =>{
+          console.log(response.data)
+          setProducts(response.data)
+        })
+        .catch(err => console.log(err))
+    }, [])
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -29,6 +29,8 @@ const CreateForm = (props) => {
         axios.post(`http://localhost:8000/api/products`, {title: title, price:price, description:description})
             .then(response=>{
                 console.log(response)
+                const filterList = products.filter((products)=>products._id !== e)
+                setProducts(filterList)
             })
             .catch(err=>console.log(err))
     }
