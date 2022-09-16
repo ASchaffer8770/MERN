@@ -20,6 +20,15 @@ const Dashboard = () => {
             .catch(err=>console.log(err))
     },[])
 
+    const handleDelete = (deleteId) => {
+        axios.delete(`http://localhost:8000/api/author/${deleteId}`)
+            .then(respone=>{
+                const filterList = authorList.filter((author)=>author._id !== deleteId)
+                setAuthorList(filterList)
+            })
+            .catch(err=>console.log(err))
+    }
+
   return (
     <div>
         <Link to='/new' className='btn btn-success'>Add an Author</Link>
@@ -38,6 +47,8 @@ const Dashboard = () => {
                             <tr key={i}>
                                 <td>{eachAuthor.firstName} {eachAuthor.lastName}</td>
                                 {/* to create a details page add link to the td */}
+                                <td><Link to={`/edit/${eachAuthor._id}`} className='btn btn-warning'>Edit</Link></td>
+                                <td><button onClick={()=>handleDelete(eachAuthor._id)} className='btn btn-danger'>Delete</button></td>
                             </tr>
                         )
                     })

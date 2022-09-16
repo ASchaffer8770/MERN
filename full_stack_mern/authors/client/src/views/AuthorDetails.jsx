@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Link, useParams} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import axios from 'axios'
 
 //get id from params : useParams
@@ -8,6 +8,7 @@ import axios from 'axios'
 
 const AuthorDetails = () => {
 
+    const navigate = useNavigate()
     const {id} = useParams()
     const [author, setAuthor] = useState()
 
@@ -19,6 +20,12 @@ const AuthorDetails = () => {
             })
             .catch(err=>console.log(err))
     },[])
+
+    const handleDelete = () => {
+        axios.delete(`http://localhost:8000/api/author/${id}`)
+            .then(response=>navigate('/'))
+            .catch(err=>console.log(err))
+    }
 
 
   return (
@@ -33,6 +40,8 @@ const AuthorDetails = () => {
         }
 
         <Link to='/' className='btn btn-primary'>Home</Link>
+        <Link to={`/edit/${id}`} className='btn btn-warning'>Edit</Link>
+        <button onClick={handleDelete} className='btn btn-danger'>Delete</button>
     </div>
   )
 }
