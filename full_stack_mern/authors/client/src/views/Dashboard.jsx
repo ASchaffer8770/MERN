@@ -37,6 +37,7 @@ const Dashboard = () => {
                         return(
                             <tr key={i}>
                                 <td>{eachAuthor.firstName} {eachAuthor.lastName}</td>
+                                {/* to create a details page add link to the td */}
                             </tr>
                         )
                     })
