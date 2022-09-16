@@ -1,12 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const UpdateAuthor = () => {
+
+const ErrorPage = () => {
   return (
-    <div>UpdateAuthor
+    <div>ErrorPage
       <Link to='/'>Home</Link>
     </div>
   )
 }
 
-export default UpdateAuthor
+export default ErrorPage

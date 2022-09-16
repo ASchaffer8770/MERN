@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from './views/Dashboard';
+import CreateAuthor from './views/CreateAuthor'
+import UpdateAuthor from './views/UpdateAuthor';
+import AuthorDetails from './views/AuthorDetails';
+import ErrorPage from './views/ErrorPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mt-5">
+      <h1>Favorite Authors</h1>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/new" element={<CreateAuthor />} />
+        <Route path="/edit/:id" element={<UpdateAuthor />} />
+        <Route path="/details/:id" element={<AuthorDetails />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
     </div>
   );
 }
